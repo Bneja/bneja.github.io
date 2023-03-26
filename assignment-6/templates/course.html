@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Grades for {{course_code}}</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Number</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+            {% for grade in grades%}
+            <tr>
+                <td>{{grade.student_no}} </td>
+                <td> {{grade.grade}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+        
+            <h3>Summary</h3><table>
+                <thead>
+                <tr><th>Grade</th><th>Count</th></tr>
+                </thead>
+                <tbody>
+                {% for summ in summary %}
+                <tr>
+                    <td> {{summ.grade}}</td>
+                    <td>{{summ.count}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+    
+
+    <form action="/add_grade" method="get">
+        <input type="text" name="course" value="{{course_code}}" hidden>
+        <input type="submit" value="add grade">
+    </form>
+{% endblock %}

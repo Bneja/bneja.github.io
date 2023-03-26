@@ -1,0 +1,86 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+body {
+    margin: 0px;
+    text-align: left;
+    padding: 0px;
+    font-family: Verdana, sans-serif;
+}
+
+#header {
+    background-color: royalblue;
+    border: 5px outset lightblue;
+    color: white;
+    text-shadow: 2px 2px 5px #333;
+    padding: 0px 10px 0px 10px;
+}
+#header h2 {
+    font-size: 1.2em;
+    font-family: Garamond, serif;
+    font-style: italic;
+    margin-top: 0;
+}
+#header h1 {
+    margin-bottom: 0;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+h2, h3 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#content {
+    padding: 0px 10px 0px 10px;
+}
+#content h2 {
+    border-bottom: 1px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-style: solid;
+    border-color: #999999;
+}
+.rank {
+    color: white;
+    background-color: black;
+}
+#content p {
+    text-align: justify;
+    text-indent: 2em;
+    color: #999999;
+}
+#content p::first-line {
+    color: black;
+}
+#content a {
+    color: blue;
+}
+#footer {
+    margin: 0;
+    padding: 0px 10px 10px 10px;
+    background-color: black;
+}
+#footer h2 {
+    color: white;
+    margin-top: 0px;
+}
+#footer ul *{
+    color: white;
+    list-style-type: circle;
+}
+
+#footer li:first-of-type {
+    list-style-type: disc;
+}
+#footer li:first-of-type+li {
+    list-style-type: disc;
+    font-weight: bold;
+}
+#footer p {
+    text-align: center;
+    color: yellow;
+    font-style: oblique;
+}
