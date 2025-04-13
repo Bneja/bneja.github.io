@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I sock | Cart</title>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/isock.ico">
+</head>
+<body>
+    <header>
+        <div id="logo"><a href="index.html"><img src="images/isock.png" alt="isocklogo"></a></div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><span class="material-icons">home</span></a></li>
+                <li><a href="product.html"><span class="material-icons">inventory</span></a></li>
+                <li><a href="cart.html"><span class="material-icons">shopping_cart</span></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main-cart">
+        <h1>Cart</h1>
+        <div class="framed">
+            <table id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Size</th>
+                        <th>Count</th>
+                        <th>Item price</th>
+                        <th>Discount</th>
+                        <th>Price</th>
+                        <th>Cancel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sock</td>
+                        <td>XL</td>
+                        <td>2</td>
+                        <td>169,00</td>
+                        <td></td>
+                        <td>338,00</td>
+                        <td><button class="button material-icons">close</button></td>
+                    </tr>
+                    <tr>
+                        <td>Sock</td>
+                        <td>S</td>
+                        <td>4</td>
+                        <td>169,00</td>
+                        <td>30%</td>
+                        <td>473,20</td>
+                        <td><button class="button material-icons">close</button></td>
+                    </tr>
+                    <tr>
+                        <td>Sock</td>
+                        <td>L</td>
+                        <td>3</td>
+                        <td>169,00</td>
+                        <td></td>
+                        <td>507,00</td>
+                        <td><button class="button material-icons">close</button></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>1&nbsp;218,20</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <h1>Checkout</h1>
+        <div class="framed">
+            <form id="checkout-form" action="">
+                <fieldset>
+                    <legend>Billing details</legend>
+                    <div>
+                        <label for="firstname">First name:</label>
+                        <input id="firstname" type="text">
+                    </div>
+                    <div>
+                        <label for="lastname">Last name:</label>
+                        <input id="lastname" type="text">
+                    </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input id="email" type="email">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Delivery adress</legend>
+                    <div>
+                        <label for="street">Street:</label>
+                        <input id="street" type="text">
+                    </div>
+                    <div>
+                        <label for="city">City:</label>
+                        <input type="text">
+                    </div>
+                    <div>
+                        <label for="postalcode">Postal code:</label>
+                        <input id="postalcode" type="number" min="0" max="9999">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Submit order</legend>
+                    <div>
+                        <input class="submit-input" id="agreetos" required type="checkbox">
+                        <label id="agreetos" for="agreetos">I agree to the general terms of service</label>
+                    </div>
+                    <input class="button" type="submit" value="&nbsp;Submit&nbsp;">
+                </fieldset>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <span>Customer service | +47 143 76 234</span>
+    </footer>
+</body>
+</html>

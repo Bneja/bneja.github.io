@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="ass1">ass1</button>
+    <button id="ass2">ass2</button>
+    <button id="ass3">ass3</button>
+    <button id="ass4">ass4</button>
+    <button id="ass5">ass5</button>
+    <button id="Gulls">Gulls</button>
+    <script>
+        document.getElementById('ass1').onclick = function() {
+            window.location.href = 'assignment-1/index.html';
+        };
+        document.getElementById('ass2').onclick = function() {
+            window.location.href = 'assignment-2/index.html';
+        };
+        document.getElementById('ass3').onclick = function() {
+            window.location.href = 'assignment-3/index.html';
+        };
+        document.getElementById('ass4').onclick = function() {
+            window.location.href = 'assignment-4/index.html';
+        };
+        document.getElementById('ass5').onclick = function() {
+            window.location.href = 'assignment-5/index.html';
+        };
+        document.getElementById('Gulls').onclick = function() {
+            window.location.href = 'https://gulls-and-us.onrender.com/';
+        };
+
+    </script>
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(17em, max-content));
+            justify-content: center;
+            align-content: center;
+            max-width: 60em;
+            height: 100vh;
+            background-color: #242424;
+            margin: auto;
+        }
+        button {
+            margin: 10px;
+            padding: .2em .5em;
+            font-size: 5em;
+            background-color:cadetblue;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+        button:hover {
+            background-color: rgb(70, 115, 117); 
+            color: white;
+        }
+        button:active {
+            background-color: rgb(54, 89, 91); 
+            transform: translateY(4px);
+        }
+    </style>
+</body>
+</html>

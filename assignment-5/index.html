@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Import Vue -->
+    <!-- development version, includes helpful console warnings -->
+<script src="https://unpkg.com/vue@3.0.5/dist/vue.global.js"></script>
+
+<script src="src/gamestat.js"></script>
+<script src="src/board.js"></script>
+<script src="https://unpkg.com/vue-router@4.0.15/dist/vue-router.global.js."></script>
+
+<link rel="stylesheet" href="style.css">
+
+    <title>Vue Memory</title>
+</head>
+<body>
+    <div id="app">
+        <button id="startbutton" v-on:click="start();" v-bind:class="{'disp-none':!gameEnded&&!firstGame}">Start game</button>
+        <game-stat 
+        v-bind:player1-score="player1Score" 
+        v-bind:player2-score="player2Score" 
+        v-bind:player1-flips="player1Flips"
+        v-bind:player2-flips="player2Flips"
+        v-bind:player-turn="playerTurn"
+        v-bind:class="{'disp-none':firstGame}"></game-stat>
+        <board
+        v-on:next-turn="nextTurn();" 
+        v-on:match="incrementScore();" 
+        v-on:flipped-card="incrementFlips();"
+        v-bind:class="{'disp-none':gameEnded}"
+        v-bind:game-ended="gameEnded"></board>
+        <div id="winner" class="winner" v-bind:class="{'disp-none':!gameEnded||firstGame}">
+            <span v-if="winner!='tie'">The winner is Player <span id="winnerSpan">{{winner}}</span>!</span>
+            <span v-else=>The game tied</span>
+        </div>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            // place logic here for showing startbutton, stats, board, and winner
+            // additionally, you need logic for:
+            // - who's turn it is, 
+            // - how many pairs each player has found,
+            // - who is the winner.
+            // place this logic here, or in an external store.
+            data:function(){
+                return{
+                    playerTurn:1,
+                    player1Score:0,
+                    player2Score:0,
+                    match:false,
+                    player1Flips:0,
+                    player2Flips:0,
+                    matchCount:0,
+                    gameEnded:true,
+                    firstGame:true,
+                    winner:NaN
+                }
+            },
+            methods:{
+                nextTurn:function(){
+                    if (this.playerTurn===1 && !this.match){
+                        this.playerTurn=2
+                    }else if (this.playerTurn===2 && !this.match){
+                        this.playerTurn=1
+                    }
+                    this.match=false
+                },
+                incrementScore:function(){
+                    if (this.playerTurn===1){
+                        this.player1Score++;
+                    }else{
+                        this.player2Score++;
+                    }
+                    this.match=true
+                    this.matchCount++
+                    if (this.matchCount===8){
+                        this.endGame();
+                    }
+                },
+                incrementFlips:function(){
+                    if (this.playerTurn===1){
+                        this.player1Flips++
+                    }else{
+                        this.player2Flips++
+                    }
+                },
+                endGame:function(){
+                    if (this.player1Score>this.player2Score){
+                    this.winner=1
+                    }else if (this.player1Score===this.player2Score){
+                        this.winner='tie'
+                    }else{
+                        this.winner=2
+                    }
+                    this.playerTurn=this.winner;
+                    this.gameEnded=true;
+                },
+                start:function(){
+                    this.gameEnded=false;
+                    this.firstGame=false;
+                    this.playerTurn=1;
+                    this.player1Score=0;
+                    this.player2Score=0;
+                    this.match=false;
+                    this.player1Flips=0;
+                    this.player2Flips=0;
+                    this.matchCount=0;
+                }
+            }
+        });
+        app.component('board', boardC);
+        app.component('game-stat',gameStatC);
+        app.mount("#app");
+    </script>
+</body>
+</html>
