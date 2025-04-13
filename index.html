@@ -6,12 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <button id="ass1">ass1</button>
-    <button id="ass2">ass2</button>
-    <button id="ass3">ass3</button>
-    <button id="ass4">ass4</button>
-    <button id="ass5">ass5</button>
-    <button id="Gulls">Gulls</button>
+    <main>
+        <button id="ass1">ass1</button>
+        <button id="ass2">ass2</button>
+        <button id="ass3">ass3</button>
+        <button id="ass4">ass4</button>
+        <button id="ass5">ass5</button>
+        <button id="Gulls">Gulls</button>
+    </main>
     <script>
         document.getElementById('ass1').onclick = function() {
             window.location.href = 'assignment-1/index.html';
@@ -34,7 +36,7 @@
 
     </script>
     <style>
-        body {
+        main {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(17em, max-content));
             justify-content: center;
